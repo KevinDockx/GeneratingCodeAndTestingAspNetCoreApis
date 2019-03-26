@@ -1,0 +1,1863 @@
+{
+	"info": {
+		"_postman_id": "36c3defa-e9f0-43c0-a8f7-df96d6c8747c",
+		"name": "Library API",
+		"description": "Through this API you can access authors and their books.\n\nContact Support: \n{\n\nName : Kevin Dockx\n\nEmail : kevin.dockx@gmail.com\n\n}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "authors",
+							"item": [
+								{
+									"name": "{author Id}",
+									"item": [
+										{
+											"name": "books",
+											"item": [
+												{
+													"name": "Get the books for a specific author",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"id": "190238d6-6dd5-4cde-ad8e-8a7cc5103de6",
+																"exec": [
+																	"",
+																	"",
+																	"eval(pm.globals.get(\"responseTimeTest\"))();"
+																],
+																"type": "text/javascript"
+															}
+														},
+														{
+															"listen": "prerequest",
+															"script": {
+																"id": "01579569-76ef-49c3-aa20-d2edabd5fd81",
+																"exec": [
+																	"var responseTimeTest = () => pm.test(\"Response time must be below 300ms\",  function ()  ",
+																	"    { pm.expect(pm.response.responseTime).to.be.below(300); });",
+																	"    ",
+																	"pm.globals.set(\"responseTimeTest\", responseTimeTest.toString());"
+																],
+																"type": "text/javascript"
+															}
+														}
+													],
+													"request": {
+														"auth": {
+															"type": "noauth"
+														},
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": ""
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId",
+																"books"
+															],
+															"variable": [
+																{
+																	"key": "authorId",
+																	"description": "The id of the book author",
+																	"value": " 2902b665-1190-4c70-9915-b9c2d7680450"
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Server Error",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"body": {
+																	"mode": "raw",
+																	"raw": ""
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		}
+																	]
+																}
+															},
+															"status": "Internal Server Error",
+															"code": 500,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "\"<object>\""
+														},
+														{
+															"name": "Bad Request",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"body": {
+																	"mode": "raw",
+																	"raw": ""
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		}
+																	]
+																}
+															},
+															"status": "Bad Request",
+															"code": 400,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+														},
+														{
+															"name": "Not Found",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"body": {
+																	"mode": "raw",
+																	"raw": ""
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		}
+																	]
+																}
+															},
+															"status": "Not Found",
+															"code": 404,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+														},
+														{
+															"name": "Success",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"body": {
+																	"mode": "raw",
+																	"raw": ""
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "[\n {\n  \"authorFirstName\": \"<string>\",\n  \"authorLastName\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n },\n {\n  \"authorFirstName\": \"<string>\",\n  \"authorLastName\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n }\n]"
+														},
+														{
+															"name": "Not Acceptable",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"body": {
+																	"mode": "raw",
+																	"raw": ""
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		}
+																	]
+																}
+															},
+															"status": "Not Acceptable",
+															"code": 406,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+														}
+													]
+												},
+												{
+													"name": "Create a book for a specific author",
+													"request": {
+														"auth": {
+															"type": "noauth"
+														},
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"description\": \"<string>\",\n    \"title\": \"<string>\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId",
+																"books"
+															],
+															"variable": [
+																{
+																	"key": "authorId",
+																	"description": "The id of the book author"
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Not Found",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n    \"description\": \"<string>\",\n    \"title\": \"<string>\"\n}"
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		}
+																	]
+																}
+															},
+															"status": "Not Found",
+															"code": 404,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+														},
+														{
+															"name": "Validation error",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n    \"description\": \"<string>\",\n    \"title\": \"<string>\"\n}"
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		}
+																	]
+																}
+															},
+															"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+															"code": 422,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"errors\": \"<object>\",\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+														},
+														{
+															"name": "Server Error",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n    \"description\": \"<string>\",\n    \"title\": \"<string>\"\n}"
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		}
+																	]
+																}
+															},
+															"status": "Internal Server Error",
+															"code": 500,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "\"<object>\""
+														},
+														{
+															"name": "Bad Request",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n    \"description\": \"<string>\",\n    \"title\": \"<string>\"\n}"
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		}
+																	]
+																}
+															},
+															"status": "Bad Request",
+															"code": 400,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+														},
+														{
+															"name": "Success",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n    \"description\": \"<string>\",\n    \"title\": \"<string>\"\n}"
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		}
+																	]
+																}
+															},
+															"status": "Created",
+															"code": 201,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"id\": \"<string>\",\n \"authorFirstName\": \"<string>\",\n \"authorLastName\": \"<string>\",\n \"title\": \"<string>\",\n \"description\": \"<string>\"\n}"
+														},
+														{
+															"name": "Not Acceptable",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n    \"description\": \"<string>\",\n    \"title\": \"<string>\"\n}"
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		}
+																	]
+																}
+															},
+															"status": "Not Acceptable",
+															"code": 406,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+														}
+													]
+												},
+												{
+													"name": "Get a book by id for a specific author",
+													"request": {
+														"auth": {
+															"type": "noauth"
+														},
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": ""
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId/books/:bookId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId",
+																"books",
+																":bookId"
+															],
+															"variable": [
+																{
+																	"key": "authorId",
+																	"description": "The id of the book author"
+																},
+																{
+																	"key": "bookId",
+																	"description": "The id of the book"
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Bad Request",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"body": {
+																	"mode": "raw",
+																	"raw": ""
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books/:bookId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books",
+																		":bookId"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		},
+																		{
+																			"key": "bookId"
+																		}
+																	]
+																}
+															},
+															"status": "Bad Request",
+															"code": 400,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+														},
+														{
+															"name": "Returns the requested book",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"body": {
+																	"mode": "raw",
+																	"raw": ""
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books/:bookId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books",
+																		":bookId"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		},
+																		{
+																			"key": "bookId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"id\": \"<string>\",\n \"authorFirstName\": \"<string>\",\n \"authorLastName\": \"<string>\",\n \"title\": \"<string>\",\n \"description\": \"<string>\"\n}"
+														},
+														{
+															"name": "Not Acceptable",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"body": {
+																	"mode": "raw",
+																	"raw": ""
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books/:bookId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books",
+																		":bookId"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		},
+																		{
+																			"key": "bookId"
+																		}
+																	]
+																}
+															},
+															"status": "Not Acceptable",
+															"code": 406,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+														},
+														{
+															"name": "Not Found",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"body": {
+																	"mode": "raw",
+																	"raw": ""
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books/:bookId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books",
+																		":bookId"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		},
+																		{
+																			"key": "bookId"
+																		}
+																	]
+																}
+															},
+															"status": "Not Found",
+															"code": 404,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+														},
+														{
+															"name": "Server Error",
+															"originalRequest": {
+																"method": "GET",
+																"header": [],
+																"body": {
+																	"mode": "raw",
+																	"raw": ""
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/authors/:authorId/books/:bookId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"authors",
+																		":authorId",
+																		"books",
+																		":bookId"
+																	],
+																	"variable": [
+																		{
+																			"key": "authorId"
+																		},
+																		{
+																			"key": "bookId"
+																		}
+																	]
+																}
+															},
+															"status": "Internal Server Error",
+															"code": 500,
+															"_postman_previewlanguage": "Text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "\"<object>\""
+														}
+													]
+												}
+											],
+											"_postman_isSubFolder": true
+										},
+										{
+											"name": "Get an author by his/her id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "a700529a-b9db-433c-b892-2a1c70d80f77",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});",
+															"",
+															"pm.test(\"Author returned must match requested author\", function () {",
+															"    var jsonData = pm.response.json();",
+															"    pm.expect(jsonData.id).to.equal(\"2902b665-1190-4c70-9915-b9c2d7680450\");",
+															"});",
+															"",
+															"eval(pm.globals.get(\"responseTimeTest\"))();"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": ""
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"authors",
+														":authorId"
+													],
+													"variable": [
+														{
+															"key": "authorId",
+															"description": "The id of the author you want to get",
+															"value": "2902b665-1190-4c70-9915-b9c2d7680450"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Not Acceptable",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": ""
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Not Acceptable",
+													"code": 406,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+												},
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": ""
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"id\": \"<string>\",\n \"firstName\": \"<string>\",\n \"lastName\": \"<string>\"\n}"
+												},
+												{
+													"name": "Server Error",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": ""
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "\"<object>\""
+												},
+												{
+													"name": "Not Found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": ""
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+												},
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": ""
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Update an author",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"authors",
+														":authorId"
+													],
+													"variable": [
+														{
+															"key": "authorId",
+															"description": "The id of the author to update"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Validation error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+													"code": 422,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"errors\": \"<object>\",\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+												},
+												{
+													"name": "Not Acceptable",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Not Acceptable",
+													"code": 406,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+												},
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+												},
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"id\": \"<string>\",\n \"firstName\": \"<string>\",\n \"lastName\": \"<string>\"\n}"
+												},
+												{
+													"name": "Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "\"<object>\""
+												},
+												{
+													"name": "Not Found",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\"\n}"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Partially update an author",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json-patch+json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "[\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    },\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    }\n]"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"authors",
+														":authorId"
+													],
+													"variable": [
+														{
+															"key": "authorId",
+															"description": "The id of the author you want to get"
+														}
+													]
+												},
+												"description": "Sample request (this request updates the author's **first name**)  \r\n            \r\n            PATCH /authors/authorId\r\n            [ \r\n                {\r\n                    \"op\": \"replace\", \r\n                    \"path\": \"/firstname\", \r\n                    \"value\": \"new first name\" \r\n                } \r\n            ]"
+											},
+											"response": [
+												{
+													"name": "Returns the updated author",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json-patch+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "[\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    },\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    }\n]"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"id\": \"<string>\",\n \"firstName\": \"<string>\",\n \"lastName\": \"<string>\"\n}"
+												},
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json-patch+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "[\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    },\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    }\n]"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+												},
+												{
+													"name": "Server Error",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json-patch+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "[\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    },\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    }\n]"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "\"<object>\""
+												},
+												{
+													"name": "Client Error",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json-patch+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "[\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    },\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    }\n]"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+													"code": 422,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"errors\": \"<object>\",\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+												},
+												{
+													"name": "Not Acceptable",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json-patch+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "[\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    },\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    }\n]"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Not Acceptable",
+													"code": 406,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+												},
+												{
+													"name": "Not Found",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json-patch+json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "[\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    },\n    {\n        \"value\": \"<object>\",\n        \"path\": \"<string>\",\n        \"op\": \"<string>\",\n        \"from\": \"<string>\"\n    }\n]"
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/authors/:authorId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"authors",
+																":authorId"
+															],
+															"variable": [
+																{
+																	"key": "authorId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "Text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+												}
+											]
+										}
+									],
+									"_postman_isSubFolder": true
+								},
+								{
+									"name": "Get a list of authors",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3318d020-cb67-4f72-928e-d68477a78d36",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"eval(pm.globals.get(\"responseTimeTest\"))();"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": "{{baseUrl}}/api/v1/authors"
+									},
+									"response": [
+										{
+											"name": "Not Acceptable",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": ""
+												},
+												"url": "{{baseUrl}}/api/v1/authors"
+											},
+											"status": "Not Acceptable",
+											"code": 406,
+											"_postman_previewlanguage": "Text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": ""
+												},
+												"url": "{{baseUrl}}/api/v1/authors"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "Text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"type\": \"<string>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<string>\"\n}"
+										},
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": ""
+												},
+												"url": "{{baseUrl}}/api/v1/authors"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "Text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n {\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\"\n },\n {\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\"\n }\n]"
+										},
+										{
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": ""
+												},
+												"url": "{{baseUrl}}/api/v1/authors"
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "Text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "\"<object>\""
+										}
+									]
+								}
+							],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}
